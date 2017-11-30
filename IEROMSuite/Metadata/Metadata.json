@@ -1,0 +1,40 @@
+{
+  "Tissue Sample": {
+    "ID": "MOU1_BRA_IND_2008_04",
+    "Specimen": "Mouse (C57/BL6)",
+    "Organ": "Brain",
+    "Stain": "India Ink",
+    "Object": "Vascular Network",
+    "Sectioning Plane": "Coronal",
+    "Scope": "Entire",
+    "Acquisition Date": {
+      "Start": "2008/01/23",
+      "End": "2008/04/15"
+    },
+    "Size": {
+      "Width": 100,
+      "Depth": 90,
+      "Height": 80
+    }
+  },
+  "Sectioning": {
+    "Knife Edge": "Left",
+    "Voxel Resol": {
+      "Width": 0.625,
+      "Depth": 0.7,
+      "Height": 1
+    },
+    "Slice Size": {
+      "Width": 2400,
+      "Height": 12000
+    },
+    "Columns": {
+      "Start": 0,
+      "End": 5
+    },
+    "RangeZ": {
+      "MinZ": 1.381,
+      "MaxZ": 11.008
+    }
+  }
+}

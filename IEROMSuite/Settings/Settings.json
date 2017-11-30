@@ -1,0 +1,134 @@
+{
+  "IEROM": {
+    "SystemInfo": {
+      "Author": "Jaerock Kwon",
+      "Version": {
+        "Major": 1,
+        "Minor": 0
+      },
+      "Debug": true
+    },
+    "RawImageProp": {
+      "BackgroundColor": 255,
+      "MinPixelIntensity": 0,
+      "MaxPixelIntensity": 255
+    },
+    "DirectoryName": {
+      "Detected": "Detected",
+      "Cropped": "Cropped",
+      "Normalized": "Normalized",
+      "Stiched": "Stiched",
+      "SticherInfo": "SticherInfo",
+      "Tiled": "Tiled",
+      "Scaled": "Scaled",
+      "Rotated": "Rotated",
+      "Attenuated": "Attenuated"
+    },
+    "ProcessInfo": {
+      "MaxProcessWaitTime": 1800000,
+      "GlobalSharedMemoryKey": "IEROMSuiteGlobalSharedMemory",
+      "ProcessExt": ".exe",
+      "Debug": {
+        "PartialPath": "-Desktop_Qt_5_5_1_MinGW_32bit-Debug/debug",
+        "PathPrefix": "build-"
+      },
+      "Release": {
+        "PartialPath": "bin",
+        "PathPrefix": ""
+      },
+	"DownScaler": {
+		"Version": {
+		"Major": 1,
+		"Minor": 0
+		},
+	  "Name": "DownScaler"
+	 },
+	"VolumeMaker": {
+		"Version": {
+		  "Major": 1,
+		  "Minor": 0
+		},
+		"Name": "VolumeMaker",
+		"ImageDirectoryName": "Whole-Mouse-Brain-Vasculature",
+		"UnitVolumeDirectoryName": "Unit-Volumes"
+	},
+	"Model3DMaker": {
+		"Version": {
+		  "Major": 1,
+		  "Minor": 0
+		},
+		"Name": "3DModelMaker",
+		"UnitVolumesDirectoryName": "Unit-Volumes",
+		"STLMeshesDirectoryName": "STL-Meshes",
+		"MultiPageTIFFsDirectoryName": "MultiPage-TIFF",
+		"VTKFilesDirectoryName" : "VTK-Files"
+	},
+      "SliceAreaDetector": {
+        "Version": {
+          "Major": 1,
+          "Minor": 0
+        },
+        "Name": "SliceAreaDetector",
+        "MetadataJsonFileName": "Metadata.json",
+        "TemplateFileName": "Template",
+        "ColumnNumberDigits": 5,
+        "RightEdgeWindowSize": 30
+      },
+      "SliceAreaCorrector": {
+        "Version": {
+          "Major": 1,
+          "Minor": 0
+        },
+        "Name": "SliceAreaCorrector",
+        "ImageChuckThreshold": 10,
+        "MaxRightEdgeDifference": 15,
+        "MaxConsecutiveWrongImages": 10,
+        "DefaultFactorForWindowSize": 2,
+        "MaxOutlierImages": 5
+      },
+      "SliceAreaCropper": {
+        "Version": {
+          "Major": 1,
+          "Minor": 0
+        },
+        "Name": "SliceAreaCropper"
+      },
+      "IntensityNormalizer": {
+        "Version": {
+          "Major": 1,
+          "Minor": 0
+        },
+        "Name": "IntensityNormalizer",
+        "NormalizedMinIntensity": 0,
+        "NormalizedMaxIntensity": 140
+      },
+      "SliceSticher": {
+        "Version": {
+          "Major": 1,
+          "Minor": 0
+        },
+        "Name": "SliceSticher",
+        "InfoFileName": "MergerInfo.txt",
+        "InfoFormat": "i%05dz%.4f.txt",
+        "InvertImageFlag": "i:"
+      },
+      "SliceSticherInfo": {
+        "Version": {
+          "Major": 1,
+          "Minor": 0
+        },
+        "Name": "SticherInfo"
+      },
+      "MultiLayerComposer": {
+        "Version": {
+          "Major": 1,
+          "Minor": 0
+        },
+        "Name": "MultiLayerComposer",
+        "IndexedImageFileNameFormat": "iNNNNN",
+        "ZPosFileNameFormat": "Z.ZZZZ",
+        "ComposerUnitDepth": 5
+      }
+    }
+  }
+}
