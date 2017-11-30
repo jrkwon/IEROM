@@ -1,0 +1,82 @@
+/* ---------------------------------------------------------------------------
+** Copyright 2016, Shruthi Raghavan
+**
+** FILENAME:
+**          compartment.h
+**
+** DESCRIPTION:
+**            Compartment Class Header
+**            Declares Variables and Inline Functions
+**            that associated with the Compartment class.
+**
+** AUTHOR:
+**        Shruthi Raghavan
+**
+** Modified By/On: Shruthi Raghavan/06152016
+** -------------------------------------------------------------------------*/
+#ifndef COMPARTMENT_H
+#define COMPARTMENT_H
+
+#include "node.h"
+
+class Compartment
+{
+protected:
+  Node* start;
+  Node* end;
+  bool paramsUptoDate;
+public:
+  double length;
+  double cylVolume;
+  double cylSurface;
+  double frstmVolume;
+  double frstmSurface;
+  double calc_cylVolume();
+  double calc_cylSurface();
+  double calc_frstmVolume();
+  double calc_frstmSurface();
+  void updateParams();
+  Compartment();
+
+  inline double getlength(){
+      if(!paramsUptoDate) updateParams();
+      this->paramsUptoDate = true;
+      return this->length;
+  }
+  inline void setStart(Node* startNode){
+      this->paramsUptoDate = false;
+      this->start = startNode;
+  }
+  inline void setEnd(Node* endNode){
+      this->paramsUptoDate = false;
+      this->end = endNode;
+  }
+  inline Node* getStart(){
+      return this->start;
+  }
+  inline Node* getEnd(){
+      return this->end;
+  }
+  inline double getcylVolume() {
+      if(!paramsUptoDate) updateParams();
+      this->paramsUptoDate = true;
+      return cylVolume;
+  }
+  inline double getcylSurface(){
+      if(!paramsUptoDate) updateParams();
+      this->paramsUptoDate = true;
+      return cylSurface;
+  }
+  inline double getfrstmVolume(){
+      if(!paramsUptoDate) updateParams();
+      this->paramsUptoDate = true;
+      return frstmVolume;
+  }
+  inline double getfrstmSurface(){
+      if(!paramsUptoDate) updateParams();
+      this->paramsUptoDate = true;
+      return frstmSurface;
+  }
+};
+
+#endif // COMPARTMENT_H

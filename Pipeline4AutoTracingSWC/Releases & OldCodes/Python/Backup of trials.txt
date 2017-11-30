@@ -1,0 +1,94 @@
+#def find_right_edge1(img):
+    #"""
+    #Function takes an input image in sitk format
+    #Returns (error,pixel_position)
+    #error = 0: pixel_position is right edge
+    #error = 1: ignore pixel_position - right edge not found
+    #"""
+    #timg = sitk.LiThreshold(img,0,255)
+    ##sitk.WriteImage(timg,"thresholded.jpg")
+    #array  = sitk.GetArrayFromImage(timg)
+    #array1,array0 = np.nonzero(array)
+    #array = Counter(array0).most_common()
+    #array.sort(key=lambda x:x[0],reverse=True) #Sort the tuples (x,occ) from lowest to highest x
+    #array_new = array[0:50]
+    #x,o = zip(*array_new)
+    #inx = np.argmax(o)
+    #array = array[inx:inx+40]
+    #x,o = zip(*array)
+    #inx = 0
+    #for h in range(1,len(o)-1):
+        #if((o[h] < o[h+1]) and (o[h] < o[h-1])): #(o[0]-o[h]>THRESHOLD_PIX_CNT) ):
+            #inx = h
+            #print(h) 
+            #break
+    #if(inx == 0):
+        #for h in range(1,len(o)-1):
+            #if(o[h] < o[h+1]):
+                #inx = h
+                #print(h)
+                #break
+    ##print(inx)
+    ##print(x[inx])
+    #return x[inx]
+
+
+def find_right_edge2(scipy_img):
+    gaussian_filter(scipy_img, 3, 1, scipy_img, mode="reflect")
+    print(scipy_img.dtype)
+    edge_img = sitk.GetImageFromArray(scipy_img)
+    sitk.Show(edge_img)
+    edge_img = sitk.LiThreshold(edge_img,0,255)
+    sitk.Show(edge_img)
+    scipy_img = sitk.GetArrayFromImage(edge_img)
+    y,x = np.nonzero(scipy_img)
+    x = x[np.logical_not(np.isnan(x))]
+    x0 = Counter(x).most_common()
+    #print(x0)    
+    x0.sort(key=lambda x0:x0[0],reverse=True)
+    x,o = zip(*x0[0:10])
+    inx = np.argmax(o)
+    #for h in range(1,len(o)-1):
+        #if((o[h] > o[h+1]) and (o[h] > o[h-1])):#(o[0]-o[h]>THRESHOLD_PIX_CNT) ):
+            #inx = h
+            #print(h)
+            #break
+    #if(inx == 0):
+        #for h in range(1,len(o)-1):
+            #if(o[h] > o[h+1]):
+                #inx = h
+                #print(h)
+                #break
+    print(inx)
+    print(x[inx])
+    return x[inx]
+
+def find_right_edge1(scipy_img):
+    #gaussian_filter1d(scipy_img, 1, axis=1, order=1, output=scipy_img, mode="reflect")
+    gaussian_filter(scipy_img, 3, 1, scipy_img, mode="reflect")
+    edge_img = sitk.GetImageFromArray(scipy_img)
+    #med = sitk.Median(edge_img,(2,1))
+    sitk.Show(edge_img)
+    #sitk.Show(med)
+    #scipy_image = GetArrayFromImage(med)
+    y,x = np.nonzero(scipy_img)
+    x = x[np.logical_not(np.isnan(x))]
+    x0 = Counter(x).most_common()
+    #print(x0)    
+    x0.sort(key=lambda x0:x0[0],reverse=True)
+    x,o = zip(*x0[0:15])
+    inx = np.argmax(o)
+    for h in range(1,len(o)-1):
+        if((o[h] > o[h+1]) and (o[h] > o[h-1])):#(o[0]-o[h]>THRESHOLD_PIX_CNT) ):
+            inx = h
+            print(h)
+            break
+    if(inx == 0):
+        for h in range(1,len(o)-1):
+            if(o[h] > o[h+1]):
+                inx = h
+                print(h)
+                break
+    print(inx)
+    print(x[inx])
+    return x[inx]
